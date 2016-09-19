@@ -1,0 +1,49 @@
+#!/bin/bash
+
+set -e
+
+red=$'\e[1;31m'
+green=$'\e[1;32m'
+yellow=$'\e[1;33m'
+blue=$'\e[1;34m'
+end=$'\e[0m'
+
+HOSTNAME=$(hostname)
+OS=$(lsb_release -d -s)
+KERNEL=$(uname -r)
+ARCH=$(arch)
+IP=$(ip -4 addr show dev enp0s8 |awk '/inet/{print $2}')
+CONTAINERS=$(docker info |awk '/Containers/{print $2}')
+MEMORY=$(docker info |awk '/Memory/{print $3" "$4}')
+CPUS=$(docker info |awk '/CPUs/{print $2}')
+IMAGES=$(docker info |awk '/Images/{print $2}')
+RUNNING=$(docker info |awk '/Running/{print $2}')
+PAUSED=$(docker info |awk '/Paused/{print $2}')
+STOPPED=$(docker info |awk '/Stopped/{print $2}')
+DRIVER=$(docker info |awk '/Storage Driver/{print $3}')
+SERVER=$(docker info |awk '/Server Version/{print $3}')
+API=$(docker version |awk '/API/{print $3}' |tail -n1)
+ROOT_DIR_SIZE=$(df -h |grep '/var/lib/docker' |awk '{print $2}')
+
+printf "%s\n"
+printf "%s\n" "  ${blue}SYSTEM${end}"
+printf "%s\n"
+printf "%s\n" "  Hostname:        $HOSTNAME"
+printf "%s\n" "  OS:              $OS"
+printf "%s\n" "  Kernel Version:  $KERNEL"
+printf "%s\n" "  Architecture:    $ARCH"
+printf "%s\n" "  CPUs:            $CPUS"
+printf "%s\n" "  Total Memory:    $MEMORY"
+printf "%s\n" "  IP:              $IP"
+printf "%s\n"
+printf "%s\n" "  ${blue}DOCKER${end}"
+printf "%s\n"
+printf "%s\n" "  Containers:      $CONTAINERS => [ ${green}Running${end}: $RUNNING | ${yellow}Paused${end}: $PAUSED | ${red}Stopped${end}: $STOPPED ]"
+printf "%s\n" "  Images:          $IMAGES"
+printf "%s\n" "  Server Version:  $SERVER"
+printf "%s\n" "  API Version:     $API"
+printf "%s\n" "  Storage Driver:  $DRIVER"
+printf "%s\n" "  Root Dir:        /var/lib/docker"
+printf "%s\n" "  Root Dir Size:   $ROOT_DIR_SIZE"
+printf "%s\n" "  Config File:     /etc/docker/daemon.json"
+printf "%s\n"
