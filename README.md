@@ -64,20 +64,20 @@ above with their current state. For more information about a specific
 VM, run `vagrant status NAME`.
 ```
 
-* `$vm_name_prefix`. Prefix used to define the VMs name.
-* `$vm_gui`. If you want to start the VM with GUI, set this to `true`.
-* `$vm_memory`. Amount of memory assigned to the VM.
-* `$vm_cpus`. Number of CPUs assigned to the VM.
-* `$docker_release`. Which release of Docker will be used.
+* **`$vm_name_prefix`**. Prefix used to define the VMs name.
+* **`$vm_gui`**. If you want to start the VM with GUI, set this to `true`.
+* **`$vm_memory`**. Amount of memory assigned to the VM.
+* **`$vm_cpus`**. Number of CPUs assigned to the VM.
+* **`$docker_release`**. Which release of Docker will be used.
 
 	* `main`. Stable release.
 	* `testing`. For test builds (ie. release candidates).
 	* `experimental`. For experimental builds with the next Docker version.
 
-* `$docker_version`. Version of Docker that will be installed. Unless you need a specific version to test a feature or bug, leave it as `latest`.
-* `$var_lib_docker_size`. Size of `/var/lib/docker` in GB. Docker's root directory will be mounted in a separate hard drive that Vagrant will create at boot time. The hard drive will be created in the same directory with the name `var-lib-docker-XX.vmdk`, being `XX` the instance number.
-* `$docker_storage_driver`. Which [Docker storage driver](https://docs.docker.com/engine/userguide/storagedriver/selectadriver/) will be used.
-* `$motd`. If `true`, after login you will see both system and Docker information.
+* **`$docker_version`**. Version of Docker that will be installed. Unless you need a specific version to test a feature or bug, leave it as `latest`.
+* **`$var_lib_docker_size`**. Size of `/var/lib/docker` in GB. Docker's root directory will be mounted in a separate hard drive that Vagrant will create at boot time. The hard drive will be created in the same directory with the name `var-lib-docker-XX.vmdk`, being `XX` the instance number.
+* **`$docker_storage_driver`**. Which [Docker storage driver](https://docs.docker.com/engine/userguide/storagedriver/selectadriver/) will be used.
+* **`$motd`**. If `true`, after login you will see both system and Docker information.
 
 ```
   SYSTEM
