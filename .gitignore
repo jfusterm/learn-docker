@@ -1,3 +1,4 @@
 *.log
 *.vmdk
 .vagrant
+.DS_Store
