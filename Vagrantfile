@@ -30,7 +30,7 @@ Vagrant.configure("2") do |config|
 
         if ! File.exist?($var_lib_docker)
           vb.customize ['createhd', '--filename', $var_lib_docker, '--size', $var_lib_docker_size * 1024, '--format', "VMDK"]
-          vb.customize ['storageattach', :id, '--storagectl', 'SCSI Controller', '--port', 2, '--device', 0, '--type', 'hdd', '--medium', $var_lib_docker]
+          vb.customize ['storageattach', :id, '--storagectl', 'SCSI', '--port', 2, '--device', 0, '--type', 'hdd', '--medium', $var_lib_docker]
         end
       end
 
