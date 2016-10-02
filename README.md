@@ -6,10 +6,8 @@ Using Vagrant you can create easily a virtual machine using Virtualbox on your l
 
 ## Requirements
 
-* [Virtualbox](https://www.virtualbox.org/)
-* [Vagrant](https://www.vagrantup.com/)
-
-**NOTE**: There is a [bug present in Vagrant 1.8.5](https://github.com/mitchellh/vagrant/issues/7610) that will cause problems starting any Linux box. This issue will be resolved in Vagrant 1.8.6 so in the meantime, install **Vagrant 1.8.4** and **Virtualbox 5.0.x**.
+* [Virtualbox](https://www.virtualbox.org/) ≥ 5.1.x
+* [Vagrant](https://www.vagrantup.com/) ≥ 1.8.6
 
 ## Usage
 
