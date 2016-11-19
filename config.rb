@@ -13,6 +13,9 @@ $vm_memory = 2048
 # VM CPUs
 $vm_cpus = 1
 
+# Forwarded ports { guest => host}
+$forwarded_ports = {}
+
 # Docker release: main, testing, experimental
 $docker_release = "main"
 

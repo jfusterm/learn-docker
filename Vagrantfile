@@ -19,6 +19,12 @@ Vagrant.configure("2") do |config|
       ip = "192.168.42.#{i+10}"
       config.vm.network :private_network, ip: ip
 
+      if $forwarded_ports.length > 0
+        $forwarded_ports.each do |key, value|
+          config.vm.network "forwarded_port", guest: key, host: value, auto_correct: true
+        end
+      end
+
       config.vm.provider :virtualbox do |vb|
 
         vb.gui = $vm_gui
