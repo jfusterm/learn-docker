@@ -46,7 +46,7 @@ $ docker info
 
 You can adjust your Docker environment changing the options included in the configuration file `config.rb`
 
-* `$num_instances`. By default, Vagrant will create just 1 virtual machine. If you want to test [Docker Swarm](https://www.docker.com/products/docker-swarm), you should increase this variable to at least `3` and Vagrant will create as many instances as you define. 
+* **`$num_instances`**. By default, Vagrant will create just 1 virtual machine. If you want to test [Docker Swarm](https://www.docker.com/products/docker-swarm), you should increase this variable to at least `3` and Vagrant will create as many instances as you define.
 
 ```
 $ vagrant status
@@ -66,6 +66,18 @@ VM, run `vagrant status NAME`.
 * **`$vm_gui`**. If you want to start the VM with GUI, set this to `true`.
 * **`$vm_memory`**. Amount of memory assigned to the VM.
 * **`$vm_cpus`**. Number of CPUs assigned to the VM.
+* **`$forwarded_ports`**. Port forwarding from the host to the guest expressed in a `hash`.
+
+```
+$forwarded_ports = { 8080 => 8080, 8081 => 8081 }
+```
+
+* **`$synced_folders`**. Synced folders from the host to the guest expressed in a `hash`.
+
+```
+$synced_folders = { "/home/joan/code" => "/code" }
+```
+
 * **`$docker_release`**. Which release of Docker will be used.
 
 	* `main`. Stable release.
