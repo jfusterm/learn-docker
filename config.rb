@@ -19,6 +19,9 @@ $docker_release = "main"
 # Docker version: latest, 1.12.1, 1.12.0, 1.11.2...
 $docker_version = "latest"
 
+# Docker Compose version: 1.9.0, 1.8.1...
+$compose_version = "1.9.0"
+
 # Size of /var/lib/docker in GB
 $var_lib_docker_size = 8
 

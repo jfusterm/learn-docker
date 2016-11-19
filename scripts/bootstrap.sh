@@ -67,8 +67,18 @@ if [ -f /tmp/motd ]; then
 	chmod +x /etc/update-motd.d/motd
 fi
 
+# Install Docker Compose
+curl -L "https://github.com/docker/compose/releases/download/$5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+
 # Cleaning packages
 apt-get clean
 
+# Disable locale check
+touch /var/lib/cloud/instance/locale-check.skip
+
 # Start Docker Engine
 systemctl start docker
+
+# Finishing
+echo "Bootstrap complete!"

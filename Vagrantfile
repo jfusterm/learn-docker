@@ -46,7 +46,7 @@ Vagrant.configure("2") do |config|
         $var_lib_docker_fs = "ext4"
       end
 
-      config.vm.provision "shell", path: "./scripts/bootstrap.sh", args: ["#{$var_lib_docker_fs}", "#{$docker_storage_driver}", "#{$docker_release}", "#{$docker_version}"]
+      config.vm.provision "shell", path: "./scripts/bootstrap.sh", args: ["#{$var_lib_docker_fs}", "#{$docker_storage_driver}", "#{$docker_release}", "#{$docker_version}", "#{$compose_version}"]
 
     end
   end
