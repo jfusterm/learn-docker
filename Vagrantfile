@@ -25,6 +25,12 @@ Vagrant.configure("2") do |config|
         end
       end
 
+      if $synced_folders.length > 0
+        $synced_folders.each do |key, value|
+          config.vm.synced_folder key, value
+        end
+      end
+
       config.vm.provider :virtualbox do |vb|
 
         vb.gui = $vm_gui

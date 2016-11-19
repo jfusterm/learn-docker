@@ -13,8 +13,11 @@ $vm_memory = 2048
 # VM CPUs
 $vm_cpus = 1
 
-# Forwarded ports { guest => host}
+# Forwarded ports { guest => host }
 $forwarded_ports = {}
+
+# Synced folders { host => guest }
+$synced_folders = {}
 
 # Docker release: main, testing, experimental
 $docker_release = "main"
