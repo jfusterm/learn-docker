@@ -60,6 +60,27 @@ Vagrant.configure("2") do |config|
 
       config.vm.provision "shell", path: "./scripts/bootstrap.sh", args: ["#{$var_lib_docker_fs}", "#{$docker_storage_driver}", "#{$docker_release}", "#{$docker_version}", "#{$compose_version}"]
 
+      if $networking_plugins
+        # Get Etcd
+        config.vm.provision :shell, :inline => "curl -Lo etcd.tar.gz  https://github.com/coreos/etcd/releases/download/v#{$etcd_version}/etcd-v#{$etcd_version}-linux-amd64.tar.gz"
+        config.vm.provision :shell, :inline => "tar -xvzf etcd.tar.gz -C /usr/local/bin/ --strip-components=1 --wildcards etcd-v#{$etcd_version}-linux-amd64/etcd*"
+        config.vm.provision :shell, :inline => "rm -f etdc.tar.gz"
+
+        # Get Calico
+        config.vm.provision :shell, :inline => "curl -Lo /usr/local/bin/calicoctl https://github.com/projectcalico/calico-containers/releases/download/v#{$calico_version}/calicoctl"
+        config.vm.provision :shell, :inline => "chmod +x /usr/local/bin/calicoctl"
+
+        # Get Weave
+        config.vm.provision :shell, :inline => "curl -Lo /usr/local/bin/weave git.io/weave"
+        config.vm.provision :shell, :inline => "chmod +x /usr/local/bin/weave"
+
+        # Get Flannel
+        config.vm.provision :shell, :inline => "curl -Lo /usr/local/bin/flanneld https://github.com/coreos/flannel/releases/download/v#{$flannel_version}/flanneld-amd64"
+        config.vm.provision :shell, :inline => "chmod +x /usr/local/bin/flanneld"
+
+        # Download Docker images
+        config.vm.provision :docker, images: ["calico/node:v#{$calico_version}","weaveworks/weaveexec:#{$weave_version}","weaveworks/weave:#{$weave_version}","weaveworks/plugin:#{$weave_version}"]
+      end
     end
   end
 end

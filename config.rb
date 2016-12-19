@@ -36,3 +36,11 @@ $docker_storage_driver = "aufs"
 
 # Display system and Docker information after login
 $motd = true
+
+# Install different Docker networking plugins: Calico, Weave and Flannel
+$networking_plugins = true
+
+$calico_version = "1.0.0"
+$weave_version = "1.8.2"
+$flannel_version = "0.6.2"
+$etcd_version = "3.0.15"
