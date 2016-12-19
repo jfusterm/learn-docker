@@ -58,7 +58,11 @@ Vagrant.configure("2") do |config|
         $var_lib_docker_fs = "ext4"
       end
 
-      config.vm.provision "shell", path: "./scripts/bootstrap.sh", args: ["#{$var_lib_docker_fs}", "#{$docker_storage_driver}", "#{$docker_release}", "#{$docker_version}", "#{$compose_version}"]
+      config.vm.provision "shell", path: "./scripts/bootstrap.sh", args: ["#{$var_lib_docker_fs}", "#{$docker_storage_driver}", "#{$docker_release}", "#{$docker_version}"]
+
+      # Install Docker Compose
+      config.vm.provision :shell, :inline => "curl -L https://github.com/docker/compose/releases/download/#{$compose_version}/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose"
+      config.vm.provision :shell, :inline => "chmod +x /usr/local/bin/docker-compose"
 
       if $networking_plugins
         # Get Etcd
