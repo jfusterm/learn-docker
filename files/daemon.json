@@ -28,7 +28,6 @@
         "userns-remap": "",
         "group": "",
         "cgroup-parent": "",
-        "default-ulimits": {},
         "ipv6": false,
         "iptables": true,
         "ip-forward": true,
