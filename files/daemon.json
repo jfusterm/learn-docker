@@ -9,7 +9,6 @@
         "storage-driver": "STORAGE-DRIVER",
         "storage-opts": [],
         "labels": [],
-        "live-restore": true,
         "log-driver": "",
         "log-opts": {},
         "mtu": 0,
