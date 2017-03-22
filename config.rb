@@ -8,7 +8,7 @@ $vm_name_prefix = "docker"
 $vm_gui = false
 
 # VM memory
-$vm_memory = 2048
+$vm_memory = 1024
 
 # VM CPUs
 $vm_cpus = 1
@@ -32,13 +32,13 @@ $compose_version = "1.11.2"
 $var_lib_docker_size = 8
 
 # Docker storage driver: aufs, devicemapper, overlay, overlay2, btrfs, zfs
-$docker_storage_driver = "aufs"
+$docker_storage_driver = "overlay2"
 
 # Display system and Docker information after login
 $motd = true
 
 # Install different Docker networking plugins: Calico, Weave and Flannel
-$networking_plugins = true
+$networking_plugins = false
 
 $calico_version = "1.1.0"
 $weave_version = "1.9.4"
