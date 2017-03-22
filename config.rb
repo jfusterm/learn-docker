@@ -26,7 +26,7 @@ $docker_release = "main"
 $docker_version = "latest"
 
 # Docker Compose version: 1.9.0, 1.8.1...
-$compose_version = "1.9.0"
+$compose_version = "1.11.2"
 
 # Size of /var/lib/docker in GB
 $var_lib_docker_size = 8
@@ -40,7 +40,7 @@ $motd = true
 # Install different Docker networking plugins: Calico, Weave and Flannel
 $networking_plugins = true
 
-$calico_version = "1.0.0"
-$weave_version = "1.8.2"
-$flannel_version = "0.6.2"
-$etcd_version = "3.0.15"
+$calico_version = "1.1.0"
+$weave_version = "1.9.4"
+$flannel_version = "0.7.0"
+$etcd_version = "3.1.2"
